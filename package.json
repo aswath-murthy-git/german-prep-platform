@@ -1,0 +1,32 @@
+{
+  "name": "german-prep-platform",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "eslint",
+    "tunnel": "cloudflared tunnel --config ./cloudflared-config.yml run german-prep-tunnel",
+    "serve": "caffeinate -dimsu bash -c 'npm run build && (npm run start & cloudflared tunnel --config ./cloudflared-config.yml run german-prep-tunnel; wait)'",
+    "serve:dev": "caffeinate -dimsu bash -c 'npm run dev & cloudflared tunnel --config ./cloudflared-config.yml run german-prep-tunnel; wait)'"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.4",
+    "lucide-react": "^1.63.0",
+    "next": "16.4.3",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
